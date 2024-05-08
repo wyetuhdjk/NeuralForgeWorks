@@ -1,9 +1,7 @@
-function isSubsequence(s, t) {
-  let i = 0;
-  let j = 0;
-  while (i < s.length && j < t.length) {
-    if (s[i] === t[j]) i++;
-    j++;
+const fibonacci = (n) => {
+  const sequence = [0, 1];
+  for (let i = 2; i <= n; i++) {
+    sequence.push(sequence[i - 1] + sequence[i - 2]);
   }
-  return i === s.length;
-}
+  return sequence;
+};
