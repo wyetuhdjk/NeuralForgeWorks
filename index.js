@@ -1,7 +1,21 @@
-const fibonacci = (n) => {
-  const sequence = [0, 1];
-  for (let i = 2; i <= n; i++) {
-    sequence.push(sequence[i - 1] + sequence[i - 2]);
+function mergeTwoLists(l1, l2) {
+  const dummy = new ListNode();
+  let current = dummy;
+  while (l1 !== null && l2 !== null) {
+    if (l1.val < l2.val) {
+      current.next = l1;
+      l1 = l1.next;
+    } else {
+      current.next = l2;
+      l2 = l2.next;
+    }
+    current = current.next;
   }
-  return sequence;
-};
+  if (l1 !== null) {
+    current.next = l1;
+  }
+  if (l2 !== null) {
+    current.next = l2;
+  }
+  return dummy.next;
+}
