@@ -1,17 +1,9 @@
-function levelOrderBottom(root) {
-  if (!root) return [];
-  const result = [];
-  const queue = [root];
-  while (queue.length) {
-    const levelSize = queue.length;
-    const currentLevel = [];
-    for (let i = 0; i < levelSize; i++) {
-      const node = queue.shift();
-      currentLevel.push(node.val);
-      if (node.left) queue.push(node.left);
-      if (node.right) queue.push(node.right);
-    }
-    result.unshift(currentLevel);
+function maxProfit(prices) {
+  let minPrice = Infinity;
+  let maxProfit = 0;
+  for (const price of prices) {
+    minPrice = Math.min(minPrice, price);
+    maxProfit = Math.max(maxProfit, price - minPrice);
   }
-  return result;
+  return maxProfit;
 }
